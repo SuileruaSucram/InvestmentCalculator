@@ -1,3 +1,5 @@
+#Adding a comment
+
 class InvestmentCalculator:
     def __init__(self, initial_investment, interest_rate, interval,years):
         self.initial_investment = initial_investment
