@@ -7,9 +7,9 @@ class InvestmentCalculator:
         self.interval = interval
         self.years = years
         self.total = self.calculate()
-
+#A = P(1 + r/n)^nt
     def calculate(self):
-        return self.initial_investment * (1 + self.interest_rate / 100) ** (self.interval_to_amount(self.interval) * self.years)
+        return self.initial_investment * (1 + (self.interest_rate / 100) / (self.interval_to_amount(self.interval))) ** (self.interval_to_amount(self.interval) * self.years)
 
     def interval_to_amount(self, interval):
         if interval == 'daily':
@@ -51,7 +51,7 @@ def main():
 
     investment_calculator = InvestmentCalculator(initial_investment, interest_rate, interval, years)
     investment_calculator.calculate()
-    print(f'Initial Investment: ${round(initial_investment, 2)}, at {interest_rate}%, compounding {interval}, final balance: ${round(investment_calculator.total, 2)}')
+    print(f'Initial Investment: ${round(initial_investment, 2)}, at {interest_rate}%, compounding {interval}, final balance: ${round(investment_calculator.total, 10)}')
 
 if __name__ == '__main__':
     main()
